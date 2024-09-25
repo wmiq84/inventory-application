@@ -1,0 +1,4 @@
+.books {
+    display: flex;
+    gap: 50px;
+}

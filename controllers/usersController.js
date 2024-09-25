@@ -3,12 +3,14 @@
 const db = require('../db/queries');
 
 async function getBooks(req, res) {
-    books = await db.getAllBooks();
+	books = await db.getAllBooks();
 	genres = await db.getAllGenres();
-    // extracts book property from each book object
-	const booksString = 'Books: ' + books.map((title) => title.book).join(', ');
-    const genresString = 'Genres: ' + genres.map((title) => title.genre).join(', ');
-    res.send(`${booksString}<br>${genresString}`);
+	// extracts book property from each book object
+	// const booksString = 'Books: ' + books.map((title) => title.book).join(', ');
+	// const genresString = 'Genres: ' + genres.map((title) => title.genre).join(', ');
+	// res.send(`${booksString}<br>${genresString}`);
+	res.render('index', { book: books, genre: genres });
+	console.log(genres)
 }
 
 async function createBookGet(req, res) {
@@ -19,7 +21,7 @@ async function createBookGet(req, res) {
 
 module.exports = {
 	getBooks,
-    createBookGet,
+	createBookGet,
 	// createUsernameGet,
 	// createUsernamePost,
 	// deleteUsernames,

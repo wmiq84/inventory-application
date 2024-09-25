@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Index</title>
+        <link rel="stylesheet" href="/styles.css">
+	</head>
+	<body>
+        <div class ="books">
+            <ul>
+                <% book.forEach((book) => { %>
+                    <li>Book: <%= book.book %></li>
+                <% }); %>
+            </ul>
+            <ul>
+                <% genre.forEach((genre) => { %>
+                    <li>Category: <%= genre.genre %></li>
+                <% }); %>
+            </ul>
+        </div>
+	</body>
+</html>
