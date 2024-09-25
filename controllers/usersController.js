@@ -9,7 +9,7 @@ async function getBooks(req, res) {
 }
 
 async function createBookGet(req, res) {
-	res.render('index', {
+	res.render('create', {
 		title: 'Form',
 	});
 }
