@@ -11,9 +11,14 @@ async function getBooks(req, res) {
 }
 
 async function createBookGet(req, res) {
+	const { book } = req.query;
+	const { genre } = req.query;
+
 	res.render('create', {
 		title: 'Form',
 		action: "/new",
+		book: book || "",
+        genre: genre || "",
 	});
 }
 
@@ -42,15 +47,22 @@ async function deleteABook(req, res) {
 }
 
 async function createBookEdit(req, res) {
+	const { book, genre } = req.query;
+
 	res.render('create', {
 		title: 'Form', 
 		action: "/edit",
+		book: book,
+        genre: genre,
 	});
-};
+}
 
 async function editABook(req, res) {
+	const { bookId, genreId } = req.query;
 	const { book, genre } = req.body;
-	await db.editBook(book, genre, "ASD", "DSA");
+	console.log(bookId, genreId)
+	await db.deleteBook(book, genre)
+	await db.addBook(book, genre);
 	res.redirect('/');
 };
 
