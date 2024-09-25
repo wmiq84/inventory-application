@@ -13,6 +13,7 @@ async function getBooks(req, res) {
 async function createBookGet(req, res) {
 	res.render('create', {
 		title: 'Form',
+		action: "/new",
 	});
 }
 
@@ -22,10 +23,26 @@ async function addABook(req, res) {
 	res.redirect('/');
 }
 
+
+async function createBookDelete(req, res) {
+	res.render('create', {
+		title: 'Form', 
+		action: "/delete",
+	});
+}
+
+async function deleteABook(req, res) {
+	const { book, genre } = req.body;
+	await db.deleteBook(book, genre);
+	res.redirect('/');
+}
+
 module.exports = {
 	getBooks,
 	createBookGet,
-	addABook
+	addABook,
+	createBookDelete,
+	deleteABook,
 	// createUsernameGet,
 	// createUsernamePost,
 	// deleteUsernames,

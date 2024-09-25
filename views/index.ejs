@@ -10,14 +10,18 @@
                 <% book.forEach((book) => { %>
                     <li>Book: <%= book.book %></li>
                     <button type="Edit">Edit</button>
-                    <button type="Delete">Delete</button>
+                    <form action="/delete" method="GET">
+                        <button type="submit">Delete</button>
+                    </form>                
                 <% }); %>
             </ul>
             <ul>
                 <% genre.forEach((genre) => { %>
                     <li>Category: <%= genre.genre %></li>
                     <button type="Edit">Edit</button>
-                    <button type="Delete">Delete</button>
+                    <form action="/delete" method="GET">
+                        <button type="submit">Delete</button>
+                    </form>
                 <% }); %>
             </ul>
         </div>
