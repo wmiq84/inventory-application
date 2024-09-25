@@ -8,6 +8,8 @@ usersRouter.get("/new", usersController.createBookGet);
 usersRouter.post("/new", usersController.addABook);
 usersRouter.get("/delete", usersController.createBookDelete);
 usersRouter.post("/delete", usersController.deleteABook);
+usersRouter.get("/edit", usersController.createBookEdit);
+usersRouter.post("/edit", usersController.editABook);
 // usersRouter.post("/new", usersController.createUsernamePost);
 // usersRouter.get("/delete", usersController.deleteUsernames);
 // usersRouter.get("/search", usersController.searchUsernames);

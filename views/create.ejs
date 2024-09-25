@@ -6,9 +6,9 @@
 	<body>
 		<form action=<%= action %> method="POST">
 			<label for="book">Book: </label>
-			<input type="text" name="book" id="book" required />
+			<input type="text" name="book" id="book" value="<%= book %>" required />
 			<label for="genre">Genre: </label>
-			<input type="text" name="genre" id="genre" required />
+			<input type="text" name="genre" id="genre" value="<%= genre %>" required />
 			<button type="submit">Submit</button>
 		</form>
 	</body>

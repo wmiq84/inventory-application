@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Index</title>
-        <link rel="stylesheet" href="/styles.css">
-	</head>
-	<body>
-        <div class ="books">
-            <ul>
-                <% book.forEach((book) => { %>
-                    <li>Book: <%= book.book %></li>
-                    <button type="Edit">Edit</button>
-                    <form action="/delete" method="GET">
-                        <button type="submit">Delete</button>
-                    </form>                
-                <% }); %>
-            </ul>
-            <ul>
-                <% genre.forEach((genre) => { %>
-                    <li>Category: <%= genre.genre %></li>
-                    <button type="Edit">Edit</button>
-                    <form action="/delete" method="GET">
-                        <button type="submit">Delete</button>
-                    </form>
-                <% }); %>
-            </ul>
-        </div>
-	</body>
+<head>
+    <title>Index</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="books">
+        <ul>
+            <% for (let i = 0; i < books.length; i++) { %>
+                <li>Book: <%= books[i].book %> | Category: <%= genres[i].genre %></li>
+                <form action="/edit" method="GET">
+                    <input type="hidden" name="bookId" value="<%= books[i].id %>">
+                    <input type="hidden" name="book" value="<%= books[i].book %>">
+                    <input type="hidden" name="genreId" value="<%= genres[i].id %>">
+                    <input type="hidden" name="genre" value="<%= genres[i].genre %>">
+                    <button type="submit">Edit</button>
+                </form>   
+                <form action="/delete" method="GET">
+                    <input type="hidden" name="bookId" value="<%= books[i].id %>">
+                    <input type="hidden" name="book" value="<%= books[i].book %>">
+                    <input type="hidden" name="genreId" value="<%= genres[i].id %>">
+                    <input type="hidden" name="genre" value="<%= genres[i].genre %>">
+                    <button type="submit">Delete</button>
+                </form>                
+            <% } %>
+        </ul>
+    </div>
+</body>
 </html>

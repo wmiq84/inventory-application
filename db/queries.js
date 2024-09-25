@@ -22,16 +22,18 @@ async function deleteBook(book, genre) {
 	await pool.query('DELETE FROM books WHERE BOOK = $1', [book]);
 	if (genreCountInt === 1) {
 		await pool.query('DELETE FROM genres WHERE GENRE = $1', [genre]);
-		console.log("AD")
 	}
-	else{
-		console.log("ADS")
-	}
+}
+
+async function editBook(book, genre, newBook, newGenre) {
+	await pool.query('UPDATE books SET book = $1 WHERE book = $2', [newBook, book]);
+	await pool.query('UPDATE genres SET genre = $1 WHERE genre = $2', [newGenre, genre]);
 }
 
 module.exports = {
 	getAllBooks,
 	getAllGenres,
 	addBook,
-	deleteBook
+	deleteBook,
+	editBook,
 };
