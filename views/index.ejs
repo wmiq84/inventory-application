@@ -9,11 +9,15 @@
             <ul>
                 <% book.forEach((book) => { %>
                     <li>Book: <%= book.book %></li>
+                    <button type="Edit">Edit</button>
+                    <button type="Delete">Delete</button>
                 <% }); %>
             </ul>
             <ul>
                 <% genre.forEach((genre) => { %>
                     <li>Category: <%= genre.genre %></li>
+                    <button type="Edit">Edit</button>
+                    <button type="Delete">Delete</button>
                 <% }); %>
             </ul>
         </div>

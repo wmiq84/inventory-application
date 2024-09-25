@@ -5,6 +5,7 @@ const usersRouter = Router();
 
 usersRouter.get("/", usersController.getBooks);
 usersRouter.get("/new", usersController.createBookGet);
+usersRouter.post("/new", usersController.addABook);
 // usersRouter.post("/new", usersController.createUsernamePost);
 // usersRouter.get("/delete", usersController.deleteUsernames);
 // usersRouter.get("/search", usersController.searchUsernames);

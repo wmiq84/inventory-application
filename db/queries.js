@@ -10,21 +10,13 @@ async function getAllGenres() {
 	return rows;
 }
 
-// async function insertUsername(username) {
-// 	await pool.query('INSERT INTO usernames (username) VALUES ($1)', [username]);
-// }
-
-// async function searchAllUsernames(search) {
-//     const { rows } = await pool.query('SELECT * FROM usernames WHERE username LIKE $1', [`%${search}%`]);
-// 	return rows;
-// }
-
-// async function deleteAllUsernames() {
-// 	const { rows } = await pool.query('DELETE FROM usernames');
-// 	return rows;
-// }
+async function addBook(book, genre) {
+	await pool.query('INSERT INTO books (book) VALUES ($1)', [book]);
+	await pool.query('INSERT INTO genres (genre) VALUES ($1)', [genre]);
+}
 
 module.exports = {
 	getAllBooks,
 	getAllGenres,
+	addBook,
 };
