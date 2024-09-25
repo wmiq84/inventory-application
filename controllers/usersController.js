@@ -4,8 +4,11 @@ const db = require('../db/queries');
 
 async function getBooks(req, res) {
     books = await db.getAllBooks();
+	genres = await db.getAllGenres();
     // extracts book property from each book object
-	res.send('Books: ' + books.map((title) => title.book).join(', '));
+	const booksString = 'Books: ' + books.map((title) => title.book).join(', ');
+    const genresString = 'Genres: ' + genres.map((title) => title.genre).join(', ');
+    res.send(`${booksString}<br>${genresString}`);
 }
 
 async function createBookGet(req, res) {

@@ -5,6 +5,11 @@ async function getAllBooks() {
 	return rows;
 }
 
+async function getAllGenres() {
+	const { rows } = await pool.query('SELECT * FROM genres');
+	return rows;
+}
+
 // async function insertUsername(username) {
 // 	await pool.query('INSERT INTO usernames (username) VALUES ($1)', [username]);
 // }
@@ -21,4 +26,5 @@ async function getAllBooks() {
 
 module.exports = {
 	getAllBooks,
+	getAllGenres,
 };
